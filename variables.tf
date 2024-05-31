@@ -1,14 +1,11 @@
-variable "resource_group_name" {
+variable "project_id" {
+  description = "The project ID to deploy to"
   type        = string
-  description = "Resource group name"
+  default     = "7114034a-847b-4455-8a03-8f7d3ff9133a"
 }
 
-variable "resource_group_location" {
+variable "client_secret_path" {
+  description = "The path to the client secret file"
   type        = string
-  description = "Resource group location"
-}
-
-variable "prefix" {
-  type        = string
-  description = "Prefix for all resources"
+  default     = "E:\\RiderProjects\\03_TERRAFORM_PROJECTS\\terraform-azure-devops-provider\\client_secret.txt"
 }

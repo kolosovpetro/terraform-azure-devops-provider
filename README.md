@@ -1,9 +1,8 @@
-# Terraform template
+# Azure DevOps Terraform provider
 
-Terraform template for modules and sub-modules.
-Includes pre-commit hooks that lint the terraform code and generate module's
-documentation as part of README file.
-Contains examples of terraform CI/CD pipelines for GitHub Actions and Azure Pipelines.
+Gameplay with Azure DevOps provider in Terraform.
+
+Docs: https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs
 
 ## Pre-commit configuration
 
@@ -49,34 +48,30 @@ sas_token            = "sas_token"
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | =3.71.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.71.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.97.1 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | ./modules/example_submodule | n/a |
+No modules.
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [azurerm_resource_group.public](https://registry.terraform.io/providers/hashicorp/azurerm/3.71.0/docs/resources/resource_group) | resource |
-| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/3.71.0/docs/data-sources/client_config) | data source |
+| [azurerm_resource_group.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for all resources | `string` | n/a | yes |
-| <a name="input_resource_group_location"></a> [resource\_group\_location](#input\_resource\_group\_location) | Resource group location | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource group name | `string` | n/a | yes |
+| <a name="input_client_secret_path"></a> [client\_secret\_path](#input\_client\_secret\_path) | The path to the client secret file | `string` | `"E:\\RiderProjects\\03_TERRAFORM_PROJECTS\\terraform-azure-devops-provider\\client_secret.txt"` | no |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The project ID to deploy to | `string` | `"7114034a-847b-4455-8a03-8f7d3ff9133a"` | no |
 
 ## Outputs
 

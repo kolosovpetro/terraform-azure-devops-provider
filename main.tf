@@ -1,12 +1,31 @@
-data "azurerm_client_config" "current" {}
-
-resource "azurerm_resource_group" "public" {
-  location = var.resource_group_location
-  name     = local.rg_name
+resource "azuredevops_project" "project" {
+  name        = "AzureDevOpsTerraformProviderNew"
+  description = "Gameplay with Azure DevOps provider in Terraform"
 }
 
-module "resource_group" {
-  source                  = "./modules/example_submodule"
-  resource_group_location = "northeurope"
-  resource_group_name     = "rg-from-module"
+resource "azuredevops_variable_group" "my_test_variable_group" {
+  project_id   = azuredevops_project.project.id
+  name         = "MyTestVariableGroup"
+  description  = "This variable group is managed by Terraform. !!!DO NOT EDIT MANUALLY!!!. Contact the team if any concerns."
+  allow_access = false
+
+  variable {
+    name  = "BaseApiPath"
+    value = "http://localhost:3000/api"
+  }
+
+  variable {
+    name  = "BaseAuthPath"
+    value = "http://localhost:3000/auth"
+  }
+
+  variable {
+    name  = "Port"
+    value = "3000"
+  }
+
+  variable {
+    name  = "SearchServiceUrl"
+    value = "http://localhost:3000/api/search"
+  }
 }
